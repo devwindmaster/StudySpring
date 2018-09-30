@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns = "http://www.springframework.org/schema/beans"
-   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-   
- 	<bean id = "car" class = "com.devwind.Car" scope="singleton">
- 	 	<property name = "engine">
- 	 		 	<bean id = "engine" class = "com.devwind.Engine">
- 					<property name="price" value = "10000"></property>
- 				</bean>
- 		</property>
- 	
- 	 	<property name = "frame">
- 	 		<bean id = "frame" class = "com.devwind.Frame"></bean>
- 	 	</property> 
- 	</bean>
-  </beans>
+
+	<bean id="car" class="com.devwind.Car" scope="singleton">
+		<property name="engine">
+			<bean id="engine" class="com.devwind.Engine">
+				<property name="price" value="10000"></property>
+			</bean>
+		</property>
+
+		<property name="frame">
+			<bean id="frame" class="com.devwind.Frame"></bean>
+		</property>
+	</bean>
+</beans>
   
