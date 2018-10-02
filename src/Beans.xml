@@ -4,16 +4,40 @@
    xsi:schemaLocation = "http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
    
- 	<bean id = "car" class = "com.devwind.Car" scope="singleton">
- 	 	<property name = "engine">
- 	 		 	<bean id = "engine" class = "com.devwind.Engine">
- 					<property name="price" value = "10000"></property>
- 				</bean>
- 		</property>
- 	
- 	 	<property name = "frame">
- 	 		<bean id = "frame" class = "com.devwind.Frame"></bean>
- 	 	</property> 
+ 	<bean id = "carCollection" class = "com.devwind.CarCollection" scope="singleton">
+ 	 	<property name="carList">
+ 	 		<list>
+ 	 			<value>BMW</value>
+ 	 			<value>MERCEDES</value>
+ 	 			<value>TOYOTA</value>
+ 	 			<value>HONDA</value>
+ 	 		</list>
+ 	 	</property>
+ 	 	<property name="carPriceSet">
+ 	 		<set>
+ 	 			<value>10000</value>
+ 	 			<value>10000</value>
+ 	 			<value>90000</value>
+ 	 			<value>8000</value>
+ 	 		</set>
+ 	 	</property>
+ 	 	<property name="carPriceMap">
+ 	 		<map>
+ 	 			<entry key = "BMW" value = "10000"></entry>
+ 	 			<entry key = "MERCEDES" value = "10000"></entry>
+ 	 			<entry key = "TOYOTA" value = "9000"></entry>
+ 	 			<entry key = "HONDA" value = "8000"></entry>
+ 	 		</map>
+ 	 	</property>
+ 	 	<property name = "carOriginProp">
+ 	 		<props>
+ 	 			<prop key = "BMW">GER</prop>
+ 	 			<prop key = "MER">GER</prop>
+ 	 			<prop key = "TOY">JAP</prop>
+ 	 			<prop key = "NIS">FRC</prop>
+ 	 		</props>
+ 	 		
+ 	 	</property>
  	</bean>
   </beans>
   
