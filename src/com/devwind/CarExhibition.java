@@ -17,10 +17,7 @@ public class CarExhibition {
 		cc.getCarPriceSet();
 		cc.getCarPriceMap();
 		cc.getCarOriginProp();
-		
+		// Tránh memory leaks.
 		context.close();
-		
-
 	}
-
 }

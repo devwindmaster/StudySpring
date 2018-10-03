@@ -31,13 +31,14 @@ public class CarCollection {
 		this.carPriceSet = carPriceSet;
 	}
 	public Map getCarPriceMap() {
+		System.out.println("Car Price Map: " + carPriceMap);
 		return carPriceMap;
 	}
 	public void setCarPriceMap(Map carPriceMap) {
 		this.carPriceMap = carPriceMap;
 	}
 	public Properties getCarOriginProp() {
-		System.out.println("Car Orgin Propertes: " + carOriginProp);
+		System.out.println("Car Orgin Properties: " + carOriginProp);
 		return carOriginProp;
 	}
 	public void setCarOriginProp(Properties carOriginProp) {
