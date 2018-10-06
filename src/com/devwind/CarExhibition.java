@@ -18,6 +18,9 @@ public class CarExhibition {
 		cc.getCarPriceMap();
 		cc.getCarOriginProp();
 		// Tránh memory leaks.
+		
+		CarCollectionRef ccr = (CarCollectionRef) context.getBean("carCollectionRef");
+		ccr.getCarListRef();
 		context.close();
 	}
 }

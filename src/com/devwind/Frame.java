@@ -7,7 +7,7 @@ package com.devwind;
  */
 public class Frame {
 	// DEFAULT constructor (không khai báo.)
-	public void printFrameOrigin() {
+	public void printFrameInfo() {
 		System.out.println("Frame made in China");
 	}
 }

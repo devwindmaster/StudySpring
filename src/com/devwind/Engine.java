@@ -17,6 +17,19 @@ public class Engine {
 	 */
 	private int price;
 	
+	/**
+	 * Tương tự cho enginOrigin
+	 */
+	private String engineOrigin;
+	
+	public String getEngineOrigin() {
+		return engineOrigin;
+	}
+
+	public void setEngineOrigin(String engineOrigin) {
+		this.engineOrigin = engineOrigin;
+	}
+
 	public int getPrice() {
 		return price;
 	}
@@ -25,7 +38,7 @@ public class Engine {
 		this.price = price;
 	}
 
-	public void printEngineOrgin() {
-		System.out.println("Engine made in Germany with cost price:" + price + "$");
+	public void printEngineInfo() {
+		System.out.println("Engine made in " + engineOrigin + " with price:" + price + "$");
 	}
 }

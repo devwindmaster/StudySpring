@@ -35,9 +35,31 @@
  	 			<prop key = "MER">GER</prop>
  	 			<prop key = "TOY">JAP</prop>
  	 			<prop key = "NIS">FRC</prop>
- 	 		</props>
- 	 		
+ 	 		</props> 	 		
  	 	</property>
  	</bean>
+ 	<!-- Dưới đây, carCollectionRef sẽ tạo những collection với các elements là các RefType Car objects. 
+		 Car lại có các fields là Engine và Frame.
+		 Bản thân Car và Engine sẽ được Container khởi tạo và đưa vào sử dụng bằng setter/getter based DI 	
+		 Frame sẽ được khởi tạo và sử dụng bằng constructor based DI
+ 	-->
+ 	<bean id = "carCollectionRef" class = "com.devwind.CarCollectionRef" scope="singleton">
+ 		<property name="carListRef">
+ 			<list>
+ 				<ref bean="car"></ref>
+ 			</list>
+ 		</property>
+ 	</bean>
+ 	<bean id="car" class="com.devwind.Car" scope="singleton">
+		<property name="engine">
+			<bean id="engine" class="com.devwind.Engine">
+				<property name="price" value="10000"></property>
+				<property name="engineOrigin" value = "GERMANY"></property>
+			</bean>
+		</property>
+		<property name="frame">
+			<bean id="frame" class="com.devwind.Frame"></bean>
+		</property>
+	</bean>
   </beans>
   

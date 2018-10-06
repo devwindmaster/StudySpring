@@ -52,7 +52,7 @@ public class Car {
 	 * Method cho biết các thông tin v�? Car.
 	 */
 	public void carInfo() {
-		e.printEngineOrgin();
-		f.printFrameOrigin();
+		e.printEngineInfo();
+		f.printFrameInfo();
 	}
 }
