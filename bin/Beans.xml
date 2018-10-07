@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns = "http://www.springframework.org/schema/beans"
-   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
    
- 	<bean id = "carCollection" class = "com.devwind.CarCollection" scope="singleton">
+ 	<bean id="carCollection" class="com.devwind.CarCollection" scope="singleton">
  	 	<property name="carList">
  	 		<list>
  	 			<value>BMW</value>
@@ -23,43 +23,96 @@
  	 	</property>
  	 	<property name="carPriceMap">
  	 		<map>
- 	 			<entry key = "BMW" value = "10000"></entry>
- 	 			<entry key = "MERCEDES" value = "10000"></entry>
- 	 			<entry key = "TOYOTA" value = "9000"></entry>
- 	 			<entry key = "HONDA" value = "8000"></entry>
+ 	 			<entry key="BMW" value="10000"></entry>
+ 	 			<entry key="MERCEDES" value="10000"></entry>
+ 	 			<entry key="TOYOTA" value="9000"></entry>
+ 	 			<entry key="HONDA" value="8000"></entry>
  	 		</map>
  	 	</property>
- 	 	<property name = "carOriginProp">
+ 	 	<property name="carOriginProp">
  	 		<props>
- 	 			<prop key = "BMW">GER</prop>
- 	 			<prop key = "MER">GER</prop>
- 	 			<prop key = "TOY">JAP</prop>
- 	 			<prop key = "NIS">FRC</prop>
+ 	 			<prop key="BMW">GER</prop>
+ 	 			<prop key="MER">GER</prop>
+ 	 			<prop key="TOY">JAP</prop>
+ 	 			<prop key="NIS">FRC</prop>
  	 		</props> 	 		
  	 	</property>
  	</bean>
  	<!-- Dưới đây, carCollectionRef sẽ tạo những collection với các elements là các RefType Car objects. 
 		 Car lại có các fields là Engine và Frame.
-		 Bản thân Car và Engine sẽ được Container khởi tạo và đưa vào sử dụng bằng setter/getter based DI 	
-		 Frame sẽ được khởi tạo và sử dụng bằng constructor based DI
+		 Bản thân Car và Frame sẽ được Container khởi tạo và đưa vào sử dụng bằng constructor-based DI 	
+		 Engine sẽ được khởi tạo và sử dụng bằng setter/getter based DI
  	-->
- 	<bean id = "carCollectionRef" class = "com.devwind.CarCollectionRef" scope="singleton">
+ 	<bean id="carCollectionRef" class="com.devwind.CarCollectionRef" scope="singleton">
  		<property name="carListRef">
  			<list>
- 				<ref bean="car"></ref>
+ 				<ref bean="car1"></ref>
+ 				<ref bean="car2"></ref>
+ 				<ref bean="car3"></ref>
+ 				<ref bean="car4"></ref>
+ 				
  			</list>
  		</property>
+ 		<property name="carSetRef">
+ 			<set>
+ 				<ref bean="car1"></ref>
+ 				<ref bean="car2"></ref>
+ 				<ref bean="car3"></ref>
+ 				<ref bean="car4"></ref>
+ 			</set>
+ 		</property>
  	</bean>
- 	<bean id="car" class="com.devwind.Car" scope="singleton">
-		<property name="engine">
-			<bean id="engine" class="com.devwind.Engine">
-				<property name="price" value="10000"></property>
-				<property name="engineOrigin" value = "GERMANY"></property>
-			</bean>
-		</property>
-		<property name="frame">
-			<bean id="frame" class="com.devwind.Frame"></bean>
-		</property>
-	</bean>
+ 	<bean id="car1" class="com.devwind.Car" scope="singleton">
+ 		<constructor-arg type="java.lang.String" value="BMW"></constructor-arg>
+ 		<constructor-arg type="com.devwind.Engine" ref="engine1"></constructor-arg>
+ 		<constructor-arg type="com.devwind.Frame" ref="frame1"></constructor-arg>
+ 	</bean>
+		<bean id="engine1" class="com.devwind.Engine">
+			<property name="enginePrice" value="10000"></property>
+			<property name="engineOrigin" value="GERMANY"></property>
+		</bean>
+		<bean id="frame1" class="com.devwind.Frame">
+			<constructor-arg type="int" value="1000"></constructor-arg>
+			<constructor-arg type="java.lang.String" value="CHINA"></constructor-arg>
+		</bean>
+	<bean id="car2" class="com.devwind.Car" scope="singleton">
+		<constructor-arg type="java.lang.String" value="MERCEDES"></constructor-arg>
+ 		<constructor-arg type="com.devwind.Engine" ref="engine2"></constructor-arg>
+ 		<constructor-arg type="com.devwind.Frame" ref="frame2"></constructor-arg>
+ 	</bean>
+		<bean id="engine2" class="com.devwind.Engine">
+			<property name="enginePrice" value="10000"></property>
+			<property name="engineOrigin" value="GERMANY"></property>
+		</bean>
+		<bean id="frame2" class="com.devwind.Frame">
+			<constructor-arg type="int" value="1000"></constructor-arg>
+			<constructor-arg type="java.lang.String" value="VIETNAM"></constructor-arg>
+		</bean>
+	<bean id="car3" class="com.devwind.Car" scope="singleton">
+		<constructor-arg type="java.lang.String" value="TOYOTA"></constructor-arg>
+ 		<constructor-arg type="com.devwind.Engine" ref="engine3"></constructor-arg>
+ 		<constructor-arg type="com.devwind.Frame" ref="frame3"></constructor-arg>
+ 	</bean>
+		<bean id="engine3" class="com.devwind.Engine">
+			<property name="enginePrice" value="9000"></property>
+			<property name="engineOrigin" value="JAPAN"></property>
+		</bean>
+		<bean id="frame3" class="com.devwind.Frame">
+			<constructor-arg type="int" value="900"></constructor-arg>
+			<constructor-arg type="java.lang.String" value="TAIWAN"></constructor-arg>
+		</bean>
+	<bean id="car4" class="com.devwind.Car" scope="singleton">
+		<constructor-arg type="java.lang.String" value="HONDA"></constructor-arg>
+ 		<constructor-arg type="com.devwind.Engine" ref="engine4"></constructor-arg>
+ 		<constructor-arg type="com.devwind.Frame" ref="frame4"></constructor-arg>
+ 	</bean>
+		<bean id="engine4" class="com.devwind.Engine">
+			<property name="enginePrice" value="8000"></property>
+			<property name="engineOrigin" value="JAPAN"></property>
+		</bean>
+		<bean id="frame4" class="com.devwind.Frame">
+			<constructor-arg type="int" value="800"></constructor-arg>
+			<constructor-arg type="java.lang.String" value="INDIA"></constructor-arg>
+		</bean>
   </beans>
   

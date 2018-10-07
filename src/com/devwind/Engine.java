@@ -15,7 +15,7 @@ public class Engine {
 	 * Nghĩa là phải có một public setterPrice giành cho nó
 	 * NOTE: Getter có thể miễn khai báo.
 	 */
-	private int price;
+	private int enginePrice;
 	
 	/**
 	 * Tương tự cho enginOrigin
@@ -30,15 +30,15 @@ public class Engine {
 		this.engineOrigin = engineOrigin;
 	}
 
-	public int getPrice() {
-		return price;
+	public int getEnginePrice() {
+		return enginePrice;
 	}
 
-	public void setPrice(int price) {
-		this.price = price;
+	public void setEnginePrice(int price) {
+		this.enginePrice = price;
 	}
 
 	public void printEngineInfo() {
-		System.out.println("Engine made in " + engineOrigin + " with price:" + price + "$");
+		System.out.println("Engine made in " + engineOrigin + " with price:" + enginePrice + "$");
 	}
 }

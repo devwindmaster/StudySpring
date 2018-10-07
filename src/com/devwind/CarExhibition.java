@@ -21,6 +21,7 @@ public class CarExhibition {
 		
 		CarCollectionRef ccr = (CarCollectionRef) context.getBean("carCollectionRef");
 		ccr.getCarListRef();
+		ccr.getCarSetRef();
 		context.close();
 	}
 }

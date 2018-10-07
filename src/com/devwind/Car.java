@@ -7,6 +7,8 @@ package com.devwind;
  * Will make some change in Car.
  */
 public class Car {
+	private static int num = 0;
+	private String brand;
 	private Engine e;
 	private Frame f;
 	
@@ -32,6 +34,8 @@ public class Car {
 	}
 	/**
 	 * Không phải default constructor, nhưng là một constructor không nhận params.
+	 * @todo Xác nhận : muốn sử dụng constructor-base DI thì phải bỏ constructor không nhận param đi đúng ko? 
+	 * 		 Confirmed: Không cần. Beans sẽ tự chọn ra constructor cần dùng.
 	 */
 	public Car() {
 		System.out.println("Redefine constructor");
@@ -42,16 +46,18 @@ public class Car {
 	 * @param engine
 	 * @param frame
 	 */
-	public Car(Engine engine, Frame frame) {
+	public Car(String brand, Engine engine, Frame frame) {
 		this.e = engine;
 		this.f = frame;
-		System.out.println("Will not be used.");
+		this.brand = brand;
+		System.out.println("Will be called...!" + num++);
 	}
 	
 	/**
 	 * Method cho biết các thông tin v�? Car.
 	 */
 	public void carInfo() {
+		System.out.println("CAR BRAND: " + this.brand);
 		e.printEngineInfo();
 		f.printFrameInfo();
 	}

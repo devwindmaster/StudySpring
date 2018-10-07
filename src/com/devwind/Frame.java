@@ -7,7 +7,14 @@ package com.devwind;
  */
 public class Frame {
 	// DEFAULT constructor (không khai báo.)
+	private int framePrice;
+	private String frameOrigin;
+	
+	public Frame(int framePrice,String frameOrigin) {
+		this.frameOrigin = frameOrigin;
+		this.framePrice = framePrice;
+	}
 	public void printFrameInfo() {
-		System.out.println("Frame made in China");
+		System.out.println("Frame made in " + frameOrigin + " with price:" + framePrice + "$");
 	}
 }
