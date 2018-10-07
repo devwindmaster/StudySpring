@@ -41,4 +41,7 @@ public class Engine {
 	public void printEngineInfo() {
 		System.out.println("Engine made in " + engineOrigin + " with price:" + enginePrice + "$");
 	}
+	public String toString() {
+		return engineOrigin;
+	}
 }

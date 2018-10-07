@@ -61,6 +61,14 @@
  				<ref bean="car4"></ref>
  			</set>
  		</property>
+ 		<property name="carMapRef">
+ 			<map>
+ 				<entry key-ref="car1" value-ref="engine1"></entry>
+ 				<entry key-ref="car2" value-ref="engine2"></entry>
+ 				<entry key-ref="car3" value-ref="engine3"></entry>
+ 				<entry key-ref="car4" value-ref="engine4"></entry>
+ 			</map>
+ 		</property>
  	</bean>
  	<bean id="car1" class="com.devwind.Car" scope="singleton">
  		<constructor-arg type="java.lang.String" value="BMW"></constructor-arg>

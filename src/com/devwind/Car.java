@@ -54,11 +54,15 @@ public class Car {
 	}
 	
 	/**
-	 * Method cho biết các thông tin v�? Car.
+	 * Method cho biết các thông tin với Car.
 	 */
 	public void carInfo() {
 		System.out.println("CAR BRAND: " + this.brand);
 		e.printEngineInfo();
 		f.printFrameInfo();
+	}
+	
+	public String toString() {
+		return brand;
 	}
 }
