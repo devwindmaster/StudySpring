@@ -1,0 +1,23 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+   <!-- 3 hàng 5,8 và 9 dưới đây được thêm vào để xử dụng AOP  -->
+   <!-- Hàng 12 được dùng để sử dụng aspectj -->
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" 
+   xmlns:aop = "http://www.springframework.org/schema/aop"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+   http://www.springframework.org/schema/aop 
+   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+
+   <aop:aspectj-autoproxy/>
+   <!-- Khác với SchemaBased, các phần config cho aspects đều được code tại chính class Aspect Logging-->
+   <!-- Definition for student bean -->
+   <bean id = "studentAOP" class = "AspectJBasedAOP.StudentAOP">
+      <property name = "name" value = "Zara" />
+      <property name = "age" value = "12"/>      
+   </bean>
+
+   <!-- Definition for logging aspect -->
+   <bean id = "logging" class = "AspectJBasedAOP.Logging"/> 
+      
+</beans>

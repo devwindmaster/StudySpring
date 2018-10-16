@@ -1,0 +1,41 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+   <!-- 3 hàng 5,8 và 9 dưới đây được thêm vào để xử dụng AOP  -->
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" 
+   xmlns:aop = "http://www.springframework.org/schema/aop"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+   http://www.springframework.org/schema/aop 
+   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+
+   <aop:config>
+   <!-- ĐỊNH NGHĨA PHƯƠNG TIỆN : LOG -->
+      <aop:aspect id = "log" ref = "logging">
+      <!-- 
+      		Dùng Expression để minh định POINT CUT với id là selectAll sau đây.
+			Các advices before,after,after-returning,after-throwing sẽ ref tới id selectAll 
+			và thực hiện các method tương ứng được định nghĩa trong Package SchemaBasedAOP
+       -->
+         <aop:pointcut id = "selectAll" 
+            expression = "execution(* SchemaBasedAOP.*.*(..))"/>
+         
+         <aop:before pointcut-ref = "selectAll" method = "beforeAdvice"/>
+         <aop:after pointcut-ref = "selectAll" method = "afterAdvice"/>
+         <aop:after-returning pointcut-ref = "selectAll" 
+            returning = "retVal" method = "afterReturningAdvice"/>
+         
+         <aop:after-throwing pointcut-ref = "selectAll" 
+            throwing = "ex" method = "afterThrowingAdvice"/>
+      </aop:aspect>
+   </aop:config>
+
+   <!-- Definition for student bean -->
+   <bean id = "student" class = "SchemaBasedAOP.Student">
+      <property name = "name" value = "Zara" />
+      <property name = "age" value = "11"/>      
+   </bean>
+
+   <!-- Definition for logging aspect -->
+   <bean id = "logging" class = "SchemaBasedAOP.Logging"/> 
+      
+</beans>
